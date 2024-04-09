@@ -3,6 +3,7 @@ import ply.lex as lex
 tokens = (
     'INT',
     'FLOAT'
+    'STRING'
 )
 
 def t_FLOAT(t):
@@ -14,6 +15,11 @@ def t_FLOAT(t):
 def t_INT(t):
     r'\d+(_\d+)*'
     t.value = int(t.value)
+    return t
+
+def t_STRING(t):
+    r'"([^"\\]|\\.)*"'
+    t.value = t.value[1:-1]  # Remove surrounding double quotes
     return t
 
 t_ignore  = ' \t'

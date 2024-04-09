@@ -87,4 +87,4 @@ class TestStrings(unittest.TestCase):
         self.assertEqual(token.value, '"Hola \"%s\""')
 
 if __name__ == '__main__':
-    unittest.main(TestFloats())
+    unittest.main(TestStrings())
